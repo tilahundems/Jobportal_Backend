@@ -1,0 +1,17 @@
+[phases.setup]
+# Install .NET 8 SDK
+nixPkgs = ["dotnet-sdk_8"]
+
+[phases.install]
+cmds = [
+  "dotnet restore"
+]
+
+[phases.build]
+cmds = [
+  "dotnet publish --no-restore -c Release -o out"
+]
+
+[start]
+# Start your API
+cmd = "./out/JobPortalAPI"
